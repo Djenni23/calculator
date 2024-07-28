@@ -29,5 +29,16 @@ function deleteLastCharacter(){
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Backspace'){
         deleteLastCharacter();
+    } else if (!isNaN(event.key)) {
+        appendToDisplay(event.key);
+    } else if (['+', '-', '*', '/'].includes(event.key)) {
+        appendToDisplay(event.key);
+    } else if (event.key === 'Enter') {
+        calculate();
+    } else if (event.key === '=') {
+        calculate();
+    } else if (event.key === 'Escape') {
+        clearDisplay();
     }
+
 });
